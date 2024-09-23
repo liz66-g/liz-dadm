@@ -6,4 +6,4 @@ Proyecto didactico para el cuerso de
 Desarrollo de apps
 
 ## Autor 
-Enrique Ortega Celis 💀
+LILITH TIB
