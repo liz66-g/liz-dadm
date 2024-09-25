@@ -7,19 +7,23 @@ const items =ref([
     {id:'2', label:'1k Azucar'},
     {id:'3', label:'1k Frijol'}
 ]);
-const newitem = ref('')
-const newitemspriority= ref('low')
+const newitem = ref('');
+const newitemspriority= ref('low');
 </script>
 
 <template>
-<h1>{{header}}</h1>
-<input v-mode="newitem" type="text" placeholder="Agregar Articulo">
+<h1>
+    <i class="material-icons shopping-cart-icon">local_mall</i>
+    {{header}}</h1>
 
-<label><input type="radio" value="low" v-mode="newitemspriority">Bajo</label>
-<label><input type="radio" value="high" v-mode="newitemspriority">Alto</label>
+<input v-model="newitem" type="text" placeholder="Agregar Articulo">
+
+<label><input type="radio" value="low" v-model="newitemspriority">Bajo</label>
+<label><input type="radio" value="high" v-model="newitemspriority">Alto</label>
 {{ newitemspriority =='low'?'hilo': 'fuegito'}}
 
-<i class="material-icons shopping-cart-icon">local_mall</i>
+
+
 <ul>
     <li v-for="item in items" v-bind:key="item.id">{{item.label}}</li>
 </ul>
