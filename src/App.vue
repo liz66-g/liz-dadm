@@ -20,7 +20,7 @@ const newitemspriority= ref('low');
 
 <label><input type="radio" value="low" v-model="newitemspriority">Bajo</label>
 <label><input type="radio" value="high" v-model="newitemspriority">Alto</label>
-{{ newitemspriority =='low'?'hilo': 'fuegito'}}
+{{ newitemspriority =='low'?'🌺': '🔥'}}
 
 
 
