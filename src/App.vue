@@ -15,20 +15,30 @@ const saveitems=() => {
   //limpia 
   newItem.value=""; 
 };
+// --- visualizacion formulario -----
 const newItem = ref(''); 
 const newItemHighPriority = ref(false);
+const editing=ref(true);
+const activateedit=(avtivate) =>{
+    editing.value=activate;
+}
 
 
 </script>
 
 <template>
-<h1>
+    <div class="header">
+        <h1>
     <i class="material-icons shopping-cart-icon">local_mall</i>
     {{ header }}
 </h1>
+<button  v-if="editing" class="btn" @click="activateedit(false)">❌Cancelar</button>
+<button  v-else class="btn btn-primary" @click="activateedit(true)"> ⬆ Agregar Articulo</button>
+    </div>
 
 <form 
 class="add-item fomr"
+v-if="editing"
  v-on:submit.prevent="saveitems()">
     <input type="text" 
     placeholder="Agregar"  
@@ -47,6 +57,8 @@ class="add-item fomr"
     <ul>
         <li v-for="({id,label}, i) in items" :key="id"> {{ i+1 }} {{i%2==0?'🌺':'🌹'}} {{label}} </li>
     </ul>
+
+    <p  v-if="items.length === 0">🥀 NO HAY ELEMENTOS EN LA LISTA 🥀</p>
 </template>
 
 <style scoped>
