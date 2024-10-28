@@ -1,100 +1,71 @@
-<script setup>
-import { ref } from "vue";
-//modelo 
-const header = ref('App lista de Compras');
-// ---Items---
-const items = ref([
-    {id:'0', label: '10 bolillos',purchased: true, priority: true}, 
-    {id:'1', label: '1 lata de volt',purchased: true, priority: true}, 
-    {id:'2', label: '1 bote de café',purchased: false, priority: false},
-    {id:'3', label: '10 chetos',purchased: false, priority: false}
-]);
-//Item-Method
-const saveItem = () => {
-    //Agregamos otro item
-    items.value.push({id: items.value.length + 1, label: newItem.value});
-    //queda vacia la caja de texto
-    newItem.value = '';
-    
-}
-
-const newItem = ref(''); 
-const newItemHighPriority = ref(false);
-const editing = ref(false);
-const activateEdition = (activate) =>{ 
-    editing.value = activate;
-};
-//metodo para crear el hipervinculo
-/*const hipervinculo = () => {
-    return newItem.value === '' ? 'https://www.google.com' :
-    'https://' + newItem.value;
-}*/
-
-</script>
+<script setup></script>
 
 <template>
-<div class="header">
-<h1>
-    <i class="material-icons shopping-cart-icon">local_mall</i>
-    {{ header }}
-  </h1>
-  <button v-if="editing" class="btn" @click="activateEdition(false)">CANCELAR</button>
-  <button v-else class="btn btn-primary" @click="activateEdition(true)">AGREGAR ARTICULO</button>
-</div>
+  <header>
+    <div>
+      <span id="logo">ITGAM BOX EXPERINCES</span>
+      <img src="./assets/logo.png" alt="logo">
+    </div>
+  </header>
 
-<!-- Hipervinculo -->
-<!--<a v-bind:href="hipervinculo()" target="_blank">
-  {{ newItem == '' ? 'link' : newItem }}
-</a>-->
+  <div class="content">
+    <h1 class="title">Coffee Plans</h1>
 
-<!-- Agrupando en un div las entradas -->
-<form v-on:submit.prevent="saveItem()" v-if="editing" class="add-item fomr">
+    <h2 class="subtitle">
+      Viajamos por el mundo para encontrar el mejor café de origen único para ti
+    </h2>
 
-    <!-- entrada de texto -->
-    <input
-      v-model.trim="newItem"
-      type="text"
-      placeholder="Add Item">
-    
-    <!-- Caja de seleccion de prioridad -->
-    <label>
-      <input type="checkbox" v-model="newItemHighPriority" />
-      Alta prioridad
-    </label>
-    <br>
-
-    <!-- Boton -->
-    <button class="btn btn-primary" 
-    :disabled="newItem.length === 0"
-    > Guardar </button>
-  
-</form>
-    <!-- Lista de items objetos-->
-    <ul>
-    <li
-         v-for="{label, id, purchased, priority} in items" 
-         :key="id"
-         class="amazing" 
-         :class="{strikeout: purchased, priority: priority}"> 
-         {{priority ? "🔥": "🛍️"}}
-        {{label}} </li>
-  </ul>
-   
-  <!-- Lista de items con arreglos-->
-  <ul>
-    <li
-         v-for="{label, id, purchased, priority} in items" 
-         :key="id"
-         
-         :class="[purchased ? 'strikeout' : '', priority ? 'priority' : '']"> 
-         {{priority ? "🔥": "✨"}}
-        {{label}} </li>
-  </ul>
-  <p v-if="items.length === 0"> 🥀NO HAY ELEMENTOS EN TU LISTA 🥀</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="description">
+          <span class="title">
+            El Soltero
+          </span>
+        </div>
+      </div>
+      <div class="plan">
+        <div class="description">
+          <span class="title">
+            El Curioso
+          </span>
+        </div>
+      </div>
+      <div class="plan">
+        <div class="description">
+          <span class="title">
+            El adicto
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-.shopping-cart-icon{
-    font-size: 2rem;
+header {
+  line-height: 1.5;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
 }
 </style>
