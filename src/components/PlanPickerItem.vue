@@ -30,6 +30,7 @@ const emit = defineEmits(['select']);
   //emitir
   //
   emit('select',props.name)
+  const selectPlan=(name)=>{console.log(name)}
 </script>
 
 <style scoped>
