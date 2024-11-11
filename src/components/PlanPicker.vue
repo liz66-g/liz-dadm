@@ -1,4 +1,4 @@
-<script>
+ <script>
 import { ref } from 'vue';
 import planItem from './PlanPickerItem.vue';
 const plans = ref(['El cafetero','El chelero','El intelectual']);
@@ -6,7 +6,8 @@ const plans = ref(['El cafetero','El chelero','El intelectual']);
 
 <template>
 <div class="plans">
-      <planItem v-for="plan in plans" :key="plan" :name="plan"/>
+      <planItem v-for="plan in plans" :key="plan" :name="plan" 
+      @select="(name)=>{console.log(name)}"/>
     </div> 
 </template>
 <div>
