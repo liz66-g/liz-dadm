@@ -25,12 +25,11 @@ const emit = defineEmits(['select']);
   //funcion que permite
   const selectPlan = () => {
     selected.value =true;
+    emit('select',props.name)
   }
   selected.value=true;
   //emitir
   //
-  emit('select',props.name)
-  const selectPlan=(name)=>{console.log(name)}
 </script>
 
 <style scoped>
