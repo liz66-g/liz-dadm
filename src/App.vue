@@ -1,32 +1,30 @@
 <script setup>
-import planItem from './components/PlanPickerItem.vue';
-import { ref } from 'vue';
-import PlanPicker from './components/PlanPicker.vue';
-const plans = ref(['cafe','chelero','intelectual']);
+import PlanPickerItem from './PlanPickerItem.vue';
+import {ref} from 'vue';
+/*Creando una variable reactiva para 
+almacenar el plan seleccionado*/
+const selectedPlan = ref(null);
+
+const plans= ref(['El cafetero', 'El chelero', 'El intelectual']);
+const selectPLan = (name) => {
+  //alamecenar el plan almacenado
+  selectedPlan.value = name; 
+      };
 </script>
 
 <template>
-  <header>
-    <div>
-      <span id="logo">Liquid Gold Box</span>
-      <img src="./assets/logo.png" alt="logo">
-    </div>
-  </header>
-
-  <div class="content">
-    <h1 class="title">Coffee Plans</h1>
-
-    <h2 class="subtitle">
-      Viajamos por el mundo para encontrar el mejor café de origen único para ti
-    </h2>
-    <PlanPicker />
-    
-
     <div class="plans">
-      <planItem v-for="plan in plans" :key="plan" :name="plan"/>
+      <PlanPickerItem 
+      v-for="plan in plans" 
+      :key="plan" 
+      :name="plan" 
+      @select="selectPLan"
+      :select-plan="selectedPlan"
+      />
     </div>
-  </div>
+    <p>{{ selectedPlan }}</p>
 </template>
 
 <style scoped>
+
 </style>
