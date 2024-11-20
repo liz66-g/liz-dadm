@@ -735,6 +735,8 @@ html {
     color: #127077;
     text-decoration: underline;
   }
-  {
-    .plans.plan.selec
+
+ .plans .selected{
+  background-color: #B3CFD0;
+  color: #FFF;
   }

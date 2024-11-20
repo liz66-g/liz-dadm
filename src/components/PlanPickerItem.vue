@@ -2,7 +2,7 @@
   <div @:click="selectPlan" class="plan">
 
     <div class="description">
-      <span class="title">{{ name }} {{ isSelected ? '✓' : '' }}</span>
+      <span class="title">{{ name }} {{ isSelected ? '✨' : '' }}</span>
     </div>
 
   </div>
