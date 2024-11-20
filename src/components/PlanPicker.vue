@@ -18,11 +18,10 @@ const selectPLan = (name) => {
       v-for="plan in plans" 
       :key="plan" 
       :name="plan" 
-      @select="selectPLan"
+      @select="selectPLan" 
       :select-plan="selectedPlan"
       />
     </div>
-    <p>{{ selectedPlan }}</p>
 </template>
 
 <style scoped>
