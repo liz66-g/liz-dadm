@@ -10,7 +10,9 @@ const selectPLan = (name) => {
   //alamecenar el plan almacenado
   selectedPlan.value = name; 
       };
-</script>
+      // intentado obtener referencia al elemento .plans
+      console.log(document.querySelector('.plans'));
+      </script>
 
 <template>
     <div class="plans">
