@@ -1,6 +1,6 @@
 <script setup>
 import PlanPickerItem from './PlanPickerItem.vue';
-import {ref} from 'vue';
+import {ref, onMounted} from 'vue';
 /*Creando una variable reactiva para 
 almacenar el plan seleccionado*/
 const selectedPlan = ref(null);
@@ -10,12 +10,20 @@ const selectPLan = (name) => {
   //alamecenar el plan almacenado
   selectedPlan.value = name; 
       };
-      // intentado obtener referencia al elemento .plans
-      console.log(document.querySelector('.plans'));
-      </script>
-
+const plansWrapper =ref(null);
+console.log("")
+ //intentando obtener la referencia al elemento .plans
+ onMounted(() => {
+  console.log("El componente PlanPicker fue montado 😎");
+  console.log(plansWrapper.value);
+ })
+ onMounted(() => {
+  console.log("El componente PlanPicker se ha desmontado🤔");
+ })
+</script>
+ 
 <template>
-    <div class="plans">
+    <div ref="plansWrapper" class="plans">
       <PlanPickerItem 
       v-for="plan in plans" 
       :key="plan" 
